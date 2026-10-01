@@ -6,6 +6,7 @@
 
 # Claude Code関連（開発時の作業指示・設定。ローカルには残すが公開しない）
 CLAUDE.md
+CLAUDE.old.md
 .claude/
 
 # OSが勝手に作るファイル

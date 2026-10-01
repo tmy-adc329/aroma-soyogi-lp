@@ -55,13 +55,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 /* 見出しなど短い文は文節で折り返す（対応ブラウザのみ。非対応でも通常の折り返しになるだけ） */
-h1, h2, h3, h4, .about__catch, .foryou__closing, .sec-lead, .line-card__text { word-break: auto-phrase; }
+h1, h2, h3, h4, .foryou__closing, .sec-lead, .line-card__text { word-break: auto-phrase; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
 h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 .container { width: 100%; max-width: 1120px; margin-inline: auto; padding-inline: 20px; }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* 未確定の箇所（クライアント確認用）。画面上でも仮だと分かる見た目にしている */
 .ph {
@@ -87,18 +86,12 @@ ul, ol { padding: 0; list-style: none; }
 .btn--primary:hover { background: color-mix(in srgb, var(--brand-deep) 85%, #000); }
 .btn--line { background: transparent; color: var(--brand-deep); border-color: var(--brand-deep); }
 .btn--line:hover { background: var(--brand-deep); color: #fff; }
-.btn svg { width: 18px; height: 18px; flex: none; }
 .btn--block { width: 100%; }
 
 /* ---------- section common ---------- */
 .section { padding-block: 88px; }
 .sec-head { margin-bottom: 44px; }
 .sec-head--center { text-align: center; }
-.sec-en {
-  font-family: var(--font-latin); font-style: italic; font-size: 19px;
-  color: var(--accent); letter-spacing: .06em; line-height: 1;
-  margin-bottom: 14px;
-}
 .sec-title {
   font-family: var(--font-mincho); font-weight: 600;
   font-size: 25px; line-height: 1.6; letter-spacing: .1em;
@@ -109,9 +102,7 @@ ul, ol { padding: 0; list-style: none; }
 .header {
   position: sticky; top: 0; z-index: 50;
   height: var(--header-h);
-  background: color-mix(in srgb, var(--bg) 90%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: var(--bg);
   border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
 }
 .header__inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -135,12 +126,6 @@ ul, ol { padding: 0; list-style: none; }
   width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 45%;
   border-radius: 1000px 1000px 0 0;
 }
-.hero__eyebrow {
-  display: inline-block;
-  font-size: 13px; letter-spacing: .14em; color: var(--brand-deep);
-  padding-bottom: 6px; border-bottom: 1px solid var(--brand-line);
-  margin-bottom: 20px;
-}
 .hero__title {
   font-family: var(--font-mincho); font-weight: 600;
   font-size: 32px; line-height: 1.6; letter-spacing: .12em;
@@ -154,44 +139,26 @@ ul, ol { padding: 0; list-style: none; }
 .foryou__photo img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; border-radius: 2px; }
 .foryou__list { display: grid; gap: 12px; }
 .foryou__item {
-  display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start;
-  padding: 18px 18px 18px 16px;
+  padding: 18px 20px;
   background: var(--bg);
-  border-left: 2px solid var(--brand-line);
 }
-.foryou__item svg { width: 24px; height: 24px; margin-top: 4px; color: var(--brand); }
 .foryou__closing {
   margin-top: 40px;
   font-family: var(--font-mincho); font-weight: 500;
   font-size: 18px; line-height: 2; letter-spacing: .1em;
 }
-.foryou__closing em { font-style: normal; color: var(--brand-deep); border-bottom: 1px solid var(--brand-line); }
 
 /* ---------- about ---------- */
-.about__catch {
-  font-family: var(--font-mincho); font-weight: 600;
-  font-size: 21px; line-height: 1.8; letter-spacing: .1em;
-  margin-bottom: 20px;
-}
 .about__text { max-width: 36em; color: var(--ink-soft); }
-.about__band { margin-block: 56px; }
+.section.about { padding-bottom: 0; }
+.about__band { margin: 56px 0 0; }
 .about__band img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-.features { display: grid; gap: 28px; }
-.feature { display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start; align-content: start; }
-.feature__icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  display: grid; place-items: center;
-  border: 1px solid var(--brand-line); color: var(--brand-deep);
-}
-.feature__icon svg { width: 30px; height: 30px; }
-.feature__title { font-family: var(--font-mincho); font-weight: 600; font-size: 17px; letter-spacing: .08em; line-height: 1.6; margin-bottom: 4px; }
-.feature__text { color: var(--ink-soft); font-size: 14px; }
 
 /* ---------- menu ---------- */
 .section.menu { background: var(--bg-beige); padding-bottom: 0; }
 .menu-nav { display: grid; gap: 12px; }
 .menu-nav__card {
-  display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center;
+  display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center;
   padding: 22px 20px;
   background: var(--paper);
   text-decoration: none;
@@ -199,22 +166,13 @@ ul, ol { padding: 0; list-style: none; }
   transition: border-color .25s;
 }
 .menu-nav__card:hover { border-color: var(--brand-line); }
-.menu-nav__num { font-family: var(--font-latin); font-size: 30px; color: var(--accent); line-height: 1; }
 .menu-nav__name { font-family: var(--font-mincho); font-weight: 600; font-size: 16px; line-height: 1.6; letter-spacing: .06em; }
 .menu-nav__meta { display: block; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
 .menu-nav__arrow { width: 20px; height: 20px; color: var(--brand-deep); }
 
 .menu-item { padding-block: 72px; }
-.menu-item__label { font-family: var(--font-latin); font-style: italic; font-size: 18px; color: var(--accent); margin-bottom: 8px; }
 .menu-item__title { font-family: var(--font-mincho); font-weight: 600; font-size: 23px; line-height: 1.6; letter-spacing: .1em; margin-bottom: 18px; }
 .menu-item__text { color: var(--ink-soft); }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-.tags li {
-  font-size: 12px; letter-spacing: .08em;
-  padding: .35em 1em; border-radius: 999px;
-  background: var(--paper); color: var(--brand-deep);
-  border: 1px solid var(--brand-line);
-}
 
 /* トリートメント */
 .treatment__grid { display: grid; gap: 36px; }
@@ -241,11 +199,8 @@ ul, ol { padding: 0; list-style: none; }
 
 .lessons { margin-top: 56px; display: grid; gap: 0; border-top: 1px solid var(--brand-line); }
 .lesson {
-  display: grid; grid-template-columns: 72px 1fr; gap: 12px 16px; align-items: baseline;
   padding: 24px 4px; border-bottom: 1px solid var(--brand-line);
 }
-.lesson__num { font-family: var(--font-latin); font-style: italic; color: var(--accent); font-size: 16px; line-height: 1.4; }
-.lesson__num b { display: block; font-style: normal; font-weight: 500; font-size: 36px; line-height: 1; }
 .lesson__title { font-family: var(--font-mincho); font-weight: 600; font-size: 17px; line-height: 1.7; letter-spacing: .06em; }
 .lesson__note { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
 
@@ -255,14 +210,6 @@ ul, ol { padding: 0; list-style: none; }
   display: flex; flex-direction: column;
   padding: 32px 24px 28px;
   background: var(--paper);
-  border-top: 3px solid var(--brand);
-}
-.plan__badge {
-  align-self: flex-start;
-  font-size: 12px; letter-spacing: .1em;
-  color: var(--accent); border: 1px solid currentColor;
-  padding: .15em .9em; border-radius: 999px;
-  margin-bottom: 14px;
 }
 .plan__name { font-family: var(--font-mincho); font-weight: 600; font-size: 19px; letter-spacing: .08em; line-height: 1.6; }
 .plan__meta { font-size: 13px; color: var(--ink-soft); }
@@ -275,7 +222,6 @@ ul, ol { padding: 0; list-style: none; }
 
 .schedule { margin-top: 16px; padding: 24px; background: var(--paper); }
 .schedule__title { display: flex; align-items: center; gap: 10px; font-family: var(--font-mincho); font-weight: 600; font-size: 16px; letter-spacing: .08em; margin-bottom: 12px; }
-.schedule__title svg { width: 22px; height: 22px; color: var(--brand-deep); }
 
 /* ---------- therapist ---------- */
 .therapist__grid { display: grid; gap: 36px; }
@@ -287,27 +233,10 @@ ul, ol { padding: 0; list-style: none; }
 
 /* ---------- flow ---------- */
 .flow { background: var(--brand-deep); color: #f4efe4; }
-.flow .sec-en { color: #e7c7a8; }
-.flow__list { display: grid; gap: 0; counter-reset: step; }
-.flow__step {
-  position: relative;
-  display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-content: start;
-  padding-bottom: 36px;
-}
+.flow__list { display: grid; gap: 0; }
+.flow__step { padding-bottom: 36px; }
 .flow__step:last-child { padding-bottom: 0; }
-.flow__step::before { /* ステップをつなぐ縦線 */
-  content: ""; position: absolute; left: 27px; top: 56px; bottom: 0;
-  border-left: 1px dashed color-mix(in srgb, #f4efe4 40%, transparent);
-}
-.flow__step:last-child::before { display: none; }
-.flow__icon {
-  width: 56px; height: 56px; border-radius: 50%;
-  display: grid; place-items: center;
-  border: 1px solid color-mix(in srgb, #f4efe4 50%, transparent);
-}
-.flow__icon svg { width: 26px; height: 26px; }
-.flow__num { font-family: var(--font-latin); font-style: italic; font-size: 15px; color: #e7c7a8; line-height: 1.2; }
-.flow__title { font-family: var(--font-mincho); font-weight: 600; font-size: 18px; letter-spacing: .08em; line-height: 1.6; margin: 2px 0 6px; }
+.flow__title { font-family: var(--font-mincho); font-weight: 600; font-size: 18px; letter-spacing: .08em; line-height: 1.6; margin: 0 0 6px; }
 .flow__text { font-size: 14px; color: color-mix(in srgb, #f4efe4 85%, transparent); }
 
 /* ---------- voice ---------- */
@@ -416,18 +345,15 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   .foryou__item { padding: 24px 22px; }
   .foryou__closing { font-size: 21px; text-align: center; margin-top: 64px; }
 
-  .about__band { margin-block: 80px; }
+  .about__band { margin-top: 80px; }
   .about__band img { aspect-ratio: 21 / 8; }
-  .features { grid-template-columns: repeat(3, 1fr); gap: 32px; }
-  .feature { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 16px; }
-  .feature__icon { width: 80px; height: 80px; }
 
   .menu-nav { grid-template-columns: 1fr 1fr; gap: 20px; }
   .menu-item { padding-block: 112px; }
   .menu-item__title { font-size: 28px; }
   .menu-item__cta { display: flex; }
 
-  .lesson { grid-template-columns: 110px 1fr; padding: 28px 8px; }
+  .lesson { padding: 28px 8px; }
   .plans { grid-template-columns: 1fr 1fr; gap: 20px; }
   .plan { padding: 40px 36px 36px; }
   .plan__cta { display: flex; }
@@ -436,7 +362,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
 
   .flow__list { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
   .flow__step { padding-bottom: 0; }
-  .flow__step::before { display: none; }
 
   .voice__list { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
@@ -471,7 +396,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
 
   .about__intro { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: end; }
   .about__intro .sec-head { margin-bottom: 0; }
-  .about__catch { font-size: 25px; }
 
   .treatment__grid { grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .treatment__photo img { aspect-ratio: 4 / 5; }
@@ -483,9 +407,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   .therapist__photo img { aspect-ratio: 4 / 5; }
 
   .flow__list { grid-template-columns: repeat(4, 1fr); gap: 32px; }
-  .flow__step { grid-template-columns: 1fr; gap: 20px; }
-  .flow__step::before { display: block; left: 68px; right: -24px; top: 28px; bottom: auto; border-left: 0; border-top: 1px dashed color-mix(in srgb, #f4efe4 40%, transparent); }
-  .flow__step:last-child::before { display: none; }
 
   .reserve__grid { grid-template-columns: 1fr 340px; gap: 24px; align-items: start; max-width: 1040px; margin-inline: auto; }
   .line-card { position: sticky; top: calc(var(--header-h) + 24px); padding: 36px 28px; }
@@ -496,16 +417,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
 
 <!-- SVGアイコン（ページ内で使い回す） -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></symbol>
-  <symbol id="i-woman" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="11" r="5"/><path d="M11 11c0 6-2 8-3 9M21 11c0 6 2 8 3 9"/><path d="M8 28c1-4 4-6 8-6s7 2 8 6"/></symbol>
-  <symbol id="i-calendar" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/><path d="m12 20 3 3 5-6"/></symbol>
-  <symbol id="i-group" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="12" r="3.5"/><circle cx="21" cy="12" r="3.5"/><path d="M4 25c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5M14 25c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
-  <symbol id="i-form" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h12l5 5v19H8z"/><path d="M20 4v5h5M12 15h9M12 19h9M12 23h5"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="24" height="17" rx="2"/><path d="m5 10 11 8 11-8"/></symbol>
-  <symbol id="i-drop" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4c4 6 8 10 8 15a8 8 0 0 1-16 0c0-5 4-9 8-15Z"/><path d="M12.5 20a3.5 3.5 0 0 0 3.5 3.5"/></symbol>
-  <symbol id="i-cup" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13h17v6a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7z"/><path d="M23 15h1.5a3 3 0 0 1 0 6H22"/><path d="M11 5c-1 1.5 1 2.5 0 4M16 5c-1 1.5 1 2.5 0 4"/></symbol>
   <symbol id="i-quote" viewBox="0 0 32 32" fill="currentColor"><path d="M6 22c0-6 2.5-10 7-12l1 2c-2.5 1.3-3.8 3.3-4 6h3v6H6zm12 0c0-6 2.5-10 7-12l1 2c-2.5 1.3-3.8 3.3-4 6h3v6h-7z"/></symbol>
 </svg>
 
@@ -533,15 +445,14 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
     <div class="container hero__inner">
       <figure class="hero__photo">
         <img src="images/hero_treatment-arm.jpg" width="1200" height="1800"
-             alt="腕にやさしく手を添えるアロマトリートメントの様子" fetchpriority="high">
+             alt="アロマトリートメントのイメージ" fetchpriority="high">
       </figure>
       <div class="hero__text">
-        <p class="hero__eyebrow">女性専用・完全予約制のアロマサロン</p>
         <h1 class="hero__title">香りのなかで、<br>ほっとひと息。</h1>
-        <p class="hero__lead">住宅街の一室で営む、小さなアロマサロンです。その日の気分で選ぶ香りのトリートメントと、自宅で続けられるセルフケア講座をご用意しています。</p>
+        <p class="hero__lead">女性専用・完全予約制の、小さなアロマサロンです。その日の気分で選ぶ香りのトリートメントと、自宅で続けられるセルフケア講座をご用意しています。</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="#reserve">初回のご予約はこちら</a>
-          <a class="btn btn--line" href="#"><svg aria-hidden="true"><use href="#i-chat"/></svg>LINEで相談する</a>
+          <a class="btn btn--line" href="#">LINEで相談する</a>
         </div>
       </div>
     </div>
@@ -551,7 +462,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   <section class="section foryou" id="for-you">
     <div class="container">
       <div class="sec-head">
-        <p class="sec-en">For you</p>
         <h2 class="sec-title">こんな方へ</h2>
       </div>
       <div class="foryou__grid">
@@ -561,12 +471,12 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         </figure>
         <div>
           <ul class="foryou__list">
-            <li class="foryou__item"><svg aria-hidden="true"><use href="#i-leaf"/></svg><p>毎日がんばっているのに、自分のための時間は後回しになっている</p></li>
-            <li class="foryou__item"><svg aria-hidden="true"><use href="#i-leaf"/></svg><p>香りやセルフケアに興味はあるけれど、何から始めればいいか分からない</p></li>
-            <li class="foryou__item"><svg aria-hidden="true"><use href="#i-leaf"/></svg><p>大きなサロンは緊張する。少人数で、ゆっくり話を聞いてもらえる場所がいい</p></li>
-            <li class="foryou__item"><svg aria-hidden="true"><use href="#i-leaf"/></svg><p>家でも続けられるケアを、ひとつ持っておきたい</p></li>
+            <li class="foryou__item"><p>毎日がんばっているのに、自分のための時間は後回しになっている</p></li>
+            <li class="foryou__item"><p>香りやセルフケアに興味はあるけれど、何から始めればいいか分からない</p></li>
+            <li class="foryou__item"><p>大きなサロンは緊張する。少人数で、ゆっくり話を聞いてもらえる場所がいい</p></li>
+            <li class="foryou__item"><p>家でも続けられるケアを、ひとつ持っておきたい</p></li>
           </ul>
-          <p class="foryou__closing">soyogiは、そんな方が<br><em>自分をいたわる時間</em>を過ごすための<br>小さなサロンです。</p>
+          <p class="foryou__closing">soyogiは、そんな方が<br>自分をいたわる時間を過ごすための<br>小さなサロンです。</p>
         </div>
       </div>
     </div>
@@ -576,12 +486,10 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   <section class="section about" id="about">
     <div class="container about__intro">
       <div class="sec-head">
-        <p class="sec-en">About</p>
         <h2 class="sec-title">soyogiについて</h2>
       </div>
       <div>
-        <p class="about__catch">住宅街の一室にある、<br>小さなアロマサロン</p>
-        <p class="about__text">atelier soyogi（アトリエ そよぎ）は、女性専用・完全予約制のアロマサロンです。ご案内は1日数名まで。慌ただしい毎日から少し離れて、香りとともにゆっくり過ごす時間をご用意しています。</p>
+        <p class="about__text">atelier soyogi（アトリエ そよぎ）は、住宅街の一室で営むアロマサロンです。ご案内は1日数名まで、セルフケア講座の定員は4名です。</p>
         <!-- CLIENT: コンセプト文の確定版（サロン名の由来・空間へのこだわりなどがあれば追記） -->
       </div>
     </div>
@@ -591,43 +499,16 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
            alt="かごに重ねて置かれた白いタオル">
     </figure>
 
-    <div class="container">
-      <ul class="features">
-        <li class="feature">
-          <span class="feature__icon"><svg aria-hidden="true"><use href="#i-woman"/></svg></span>
-          <div>
-            <h3 class="feature__title">女性専用</h3>
-            <p class="feature__text">女性の方だけをお迎えする、落ち着いた空間です。</p>
-          </div>
-        </li>
-        <li class="feature">
-          <span class="feature__icon"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>
-          <div>
-            <h3 class="feature__title">完全予約制・1日数名まで</h3>
-            <p class="feature__text">ご予約の方だけを、時間にゆとりをもってお迎えします。</p>
-          </div>
-        </li>
-        <li class="feature">
-          <span class="feature__icon"><svg aria-hidden="true"><use href="#i-group"/></svg></span>
-          <div>
-            <h3 class="feature__title">講座は最大4名まで</h3>
-            <p class="feature__text">セルフケア講座は、少人数でゆっくり進めます。</p>
-          </div>
-        </li>
-      </ul>
-    </div>
   </section>
 
   <!-- ========== 4・5. メニュー ========== -->
   <section class="section menu" id="menu">
     <div class="container">
       <div class="sec-head sec-head--center">
-        <p class="sec-en">Menu</p>
         <h2 class="sec-title">メニュー</h2>
       </div>
       <div class="menu-nav">
         <a class="menu-nav__card" href="#treatment">
-          <span class="menu-nav__num">01</span>
           <span>
             <span class="menu-nav__name">アロマトリートメント</span>
             <span class="menu-nav__meta">個人・完全予約制｜60分 7,700円〜</span>
@@ -635,7 +516,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
           <svg class="menu-nav__arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
         <a class="menu-nav__card" href="#course">
-          <span class="menu-nav__num">02</span>
           <span>
             <span class="menu-nav__name">はじめてのアロマセルフケア講座</span>
             <span class="menu-nav__meta">少人数・最大4名｜体験講座 3,300円〜</span>
@@ -650,17 +530,11 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
       <div class="container treatment__grid">
         <figure class="treatment__photo">
           <img src="images/treatment_oil.jpg" width="1400" height="933" loading="lazy"
-               alt="手のひらにオイルを出してトリートメントの準備をする様子">
+               alt="オイルを手にとるトリートメントのイメージ">
         </figure>
         <div>
-          <p class="menu-item__label">Menu 01</p>
           <h3 class="menu-item__title">アロマトリートメント</h3>
-          <p class="menu-item__text">その日の気分で選んだ精油で行う、ゆったりとしたトリートメントです。心地よい香りに包まれながら、自分をいたわる時間をお過ごしください。</p>
-          <ul class="tags">
-            <li>個人・完全予約制</li>
-            <li>香りはその日の気分で</li>
-          </ul>
-
+          <p class="menu-item__text">その日の気分で選んだ精油で行う、おひとりずつのトリートメントです。</p>
           <div class="menu-item__detail">
             <!-- CLIENT: トリートメントの内容の詳細（範囲・着替えの有無など） -->
             <p class="ph">（トリートメントの内容の詳細が入ります）</p>
@@ -691,21 +565,15 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         <div class="course__head">
           <div class="course__gallery">
             <img class="g-main" src="images/course_mortar.jpg" width="1400" height="933" loading="lazy"
-                 alt="すり鉢に乾燥ハーブを落とす手元">
+                 alt="すり鉢でハーブを扱う講座のイメージ">
             <img class="g-sub" src="images/course_herbs-jars.jpg" width="1000" height="823" loading="lazy"
-                 alt="小さなガラス瓶に入ったハーブ">
+                 alt="ガラス瓶に入ったハーブのイメージ">
             <img class="g-sub" src="images/course_workshop.jpg" width="1000" height="480" loading="lazy"
-                 alt="テーブルを囲んで少人数でハーブを扱う様子">
+                 alt="少人数でハーブを扱う講座のイメージ">
           </div>
           <div>
-            <p class="menu-item__label">Menu 02</p>
             <h3 class="menu-item__title">はじめての<br>アロマセルフケア講座</h3>
-            <p class="menu-item__text">自宅でできる香りのセルフケアを、少人数で学ぶ全3回の講座です。精油の選び方から、自分用のブレンドオイルづくりまでを、3回に分けてゆっくり進めます。</p>
-            <ul class="tags">
-              <li>少人数・最大4名</li>
-              <li>全3回</li>
-              <li>単発の体験講座あり</li>
-            </ul>
+            <p class="menu-item__text">自宅でできる香りのセルフケアを、最大4名の少人数で学ぶ全3回の講座です。精油の選び方から、自分用のブレンドオイルづくりまでを順に学びます。</p>
             <div class="menu-item__detail">
               <!-- CLIENT: 1回あたりの時間・開催場所など -->
               <p class="ph">（1回あたりの時間などの講座概要が入ります）</p>
@@ -715,19 +583,16 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
 
         <ol class="lessons">
           <li class="lesson">
-            <span class="lesson__num">Lesson<b>01</b></span>
             <div>
               <p class="lesson__title">第1回　精油の選び方と香りの楽しみ方</p>
             </div>
           </li>
           <li class="lesson">
-            <span class="lesson__num">Lesson<b>02</b></span>
             <div>
               <p class="lesson__title">第2回　ハンドトリートメントのやり方</p>
             </div>
           </li>
           <li class="lesson">
-            <span class="lesson__num">Lesson<b>03</b></span>
             <div>
               <p class="lesson__title">第3回　自分用のブレンドオイルづくり</p>
               <p class="lesson__note">作ったオイルはお持ち帰りいただけます。</p>
@@ -737,7 +602,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
 
         <div class="plans">
           <article class="plan">
-            <span class="plan__badge">まずはお試し</span>
             <h4 class="plan__name">体験講座（単発）</h4>
             <p class="plan__meta">90分</p>
             <p class="plan__price">3,300<small>円</small></p>
@@ -750,20 +614,19 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
             </div>
           </article>
           <article class="plan">
-            <span class="plan__badge">全3回</span>
             <h4 class="plan__name">アロマセルフケア講座</h4>
             <p class="plan__meta">第1回〜第3回</p>
             <p class="plan__price">16,500<small>円</small></p>
             <p class="plan__price-note">税込・精油・テキスト代込み</p>
             <p class="plan__text">精油の選び方からブレンドオイルづくりまで、3回を通して学びます。</p>
             <div class="plan__cta">
-              <a class="btn btn--line" href="#"><svg aria-hidden="true"><use href="#i-chat"/></svg>LINEで相談する</a>
+              <a class="btn btn--line" href="#">LINEで相談する</a>
             </div>
           </article>
         </div>
 
         <div class="schedule">
-          <p class="schedule__title"><svg aria-hidden="true"><use href="#i-calendar"/></svg>開催日程</p>
+          <p class="schedule__title">開催日程</p>
           <!-- CLIENT: 講座の開催日程 -->
           <p class="ph">（講座の開催日程が入ります）</p>
         </div>
@@ -775,7 +638,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   <section class="section therapist" id="therapist">
     <div class="container">
       <div class="sec-head">
-        <p class="sec-en">Therapist</p>
         <h2 class="sec-title">セラピスト紹介</h2>
       </div>
       <div class="therapist__grid">
@@ -808,41 +670,32 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   <section class="section flow" id="flow">
     <div class="container">
       <div class="sec-head sec-head--center">
-        <p class="sec-en">Flow</p>
         <h2 class="sec-title">ご予約から当日までの流れ</h2>
       </div>
       <ol class="flow__list">
         <li class="flow__step">
-          <span class="flow__icon"><svg aria-hidden="true"><use href="#i-form"/></svg></span>
           <div>
-            <p class="flow__num">Step 01</p>
             <h3 class="flow__title">ご予約</h3>
             <p class="flow__text">ページ下のフォームから、希望メニューと日にちをお送りください。迷ったときはLINEでもご相談いただけます。</p>
           </div>
         </li>
         <li class="flow__step">
-          <span class="flow__icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
           <div>
-            <p class="flow__num">Step 02</p>
             <h3 class="flow__title">予約確定のご連絡</h3>
             <!-- CLIENT: 連絡の方法・返信までの目安 -->
             <p class="flow__text">サロンから、ご予約確定のご連絡をお送りします。</p>
           </div>
         </li>
         <li class="flow__step">
-          <span class="flow__icon"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>
           <div>
-            <p class="flow__num">Step 03</p>
             <h3 class="flow__title">当日・香りを選ぶ</h3>
             <p class="flow__text">当日は、その日の気分で好きな香りを選ぶところから始まります。</p>
           </div>
         </li>
         <li class="flow__step">
-          <span class="flow__icon"><svg aria-hidden="true"><use href="#i-cup"/></svg></span>
           <div>
-            <p class="flow__num">Step 04</p>
-            <h3 class="flow__title">ゆったり過ごす</h3>
-            <p class="flow__text">トリートメントや講座の時間を、ゆっくりお過ごしください。</p>
+            <h3 class="flow__title">トリートメント・講座</h3>
+            <p class="flow__text">トリートメントは60分または90分、体験講座は90分です。</p>
           </div>
         </li>
       </ol>
@@ -854,7 +707,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   <section class="section voice" id="voice">
     <div class="container">
       <div class="sec-head sec-head--center">
-        <p class="sec-en">Voice</p>
         <h2 class="sec-title">お客様の声</h2>
       </div>
       <!-- CLIENT: 掲載許可を得たお客様の声 -->
@@ -882,13 +734,12 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   <section class="section faq" id="faq">
     <div class="container">
       <div class="sec-head sec-head--center">
-        <p class="sec-en">FAQ</p>
         <h2 class="sec-title">よくある質問</h2>
       </div>
       <div class="faq__list">
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>サロンに行くのが初めてでも大丈夫ですか？</summary>
-          <div class="faq__a"><span class="faq__mark">A</span><p>はい。女性専用・完全予約制で、ご案内は1日数名までの小さなサロンです。はじめての方も、ゆっくりお過ごしいただけます。</p></div>
+          <div class="faq__a"><span class="faq__mark">A</span><p>はい。ご案内は1日数名までです。当日の流れは「ご予約から当日までの流れ」でご案内しています。</p></div>
         </details>
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>料金はどのくらいかかりますか？</summary>
@@ -924,7 +775,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   <section class="section access" id="access">
     <div class="container">
       <div class="sec-head sec-head--center">
-        <p class="sec-en">Access</p>
         <h2 class="sec-title">アクセス・営業情報</h2>
       </div>
       <dl class="access__table">
@@ -971,7 +821,6 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
     </div>
     <div class="container">
       <div class="sec-head sec-head--center">
-        <p class="sec-en">Reservation</p>
         <h2 class="sec-title">初回のご予約</h2>
         <p class="sec-lead">ご希望のメニューと日にちをお知らせください。</p>
       </div>
@@ -1016,7 +865,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
           <p class="line-card__title">メニュー選びに迷ったら</p>
           <p class="line-card__text">どちらのメニューにするか迷ったときや、全3回の講座についてのご相談は、LINEからどうぞ。</p>
           <!-- CLIENT: LINE公式アカウントのURL -->
-          <a class="btn btn--line" href="#"><svg aria-hidden="true"><use href="#i-chat"/></svg>LINEで相談する</a>
+          <a class="btn btn--line" href="#">LINEで相談する</a>
         </aside>
       </div>
     </div>
