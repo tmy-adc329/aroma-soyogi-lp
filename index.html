@@ -6,7 +6,6 @@
 <!-- ポートフォリオ用の架空サロンのため、検索結果に出さない -->
 <meta name="robots" content="noindex">
 <title>atelier soyogi｜女性専用のアロマサロン・セルフケア講座</title>
-<!-- CLIENT: 検索結果に表示される説明文（確定したら差し替え） -->
 <meta name="description" content="住宅街の一室で営む、女性専用・完全予約制の小さなアロマサロン。アロマトリートメントと、はじめてのアロマセルフケア講座。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,15 +103,10 @@ ul, ol { padding: 0; list-style: none; }
 :focus-visible { outline: 2px solid var(--brand-deep); outline-offset: 3px; }
 
 /* 未確定の箇所（クライアント確認用）。画面上でも仮だと分かる見た目にしている */
-.ph {
-  display: block;
-  padding: .7em 1em;
-  border: 1px dashed var(--brand-line);
-  color: var(--ink-soft);
-  font-size: var(--fs-note);
-  line-height: 1.7;
-}
-.ph--inline { display: inline-block; padding: .1em .7em; }
+/* 掲載例（実在の情報や本人の許可が必要で、架空のサロンでは載せられない箇所）。セクションごとに1つの注記にまとめる */
+.sample { color: var(--ink-soft); }
+.sample-note { margin-top: var(--sp-4); font-size: var(--fs-note); line-height: 1.6; color: var(--ink-soft); }
+.sample-note span { display: inline-block; margin-right: var(--sp-2); padding: 0 .5em; border: 1px solid currentColor; border-radius: 2px; }
 
 /* フリー素材の写真に添える「イメージ」の表記 */
 .photo-note { margin-top: var(--sp-2); font-size: var(--fs-note); line-height: 1.6; color: var(--ink-soft); text-align: right; }
@@ -151,7 +145,7 @@ ul, ol { padding: 0; list-style: none; }
 .logo__sub { font-family: var(--font-latin); font-style: italic; font-size: var(--fs-body); color: var(--ink-soft); }
 .logo__main { font-family: var(--font-latin); font-size: 26px; font-weight: 500; letter-spacing: .08em; }
 .header__nav { display: none; }
-.header__cta { min-height: 44px; padding: .4em 1.3em; font-size: var(--fs-note); }
+@media (max-width: 374px) { .header .btn { padding-inline: 1.2em; } }
 
 /* ---------- hero（主役：アーチ形の写真） ---------- */
 .hero { padding: var(--sp-5) 0 var(--sp-8); overflow: hidden; }
@@ -236,13 +230,12 @@ ul, ol { padding: 0; list-style: none; }
 .price-table__price { font-family: var(--font-latin); font-size: var(--fs-num); font-weight: 500; letter-spacing: .02em; line-height: 1; }
 .price-table__price small { font-family: var(--font-gothic); font-size: var(--fs-note); margin-left: 2px; }
 .price-note { margin-top: var(--sp-2); font-size: var(--fs-note); color: var(--ink-soft); text-align: right; }
-.menu-item__detail { margin-top: var(--sp-5); }
+.menu-item__detail { margin-top: var(--sp-5); color: var(--ink-soft); }
 .menu-item__cta { margin-top: var(--sp-6); display: grid; }
 
 /* 講座（セージの面の上は、文字を濃い色にする） */
 .course { background: var(--brand-soft); }
-.course .menu-item__text, .course .ph, .course .lesson__note, .course .photo-note { color: var(--ink); }
-.course .plan .ph { color: var(--ink-soft); }
+.course .menu-item__text, .course .menu-item__detail, .course .lesson__note, .course .photo-note { color: var(--ink); }
 .course__head { display: grid; gap: var(--sp-6); }
 .course__gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .course__gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
@@ -270,11 +263,13 @@ ul, ol { padding: 0; list-style: none; }
 .plan__price small { font-family: var(--font-gothic); font-size: var(--fs-note); margin-left: 2px; }
 .plan__price-note { font-size: var(--fs-note); color: var(--ink-soft); margin-top: var(--sp-2); }
 .plan__text { margin-top: var(--sp-4); color: var(--ink-soft); }
-.plan .ph { margin-top: var(--sp-3); }
+.plan__detail { margin-top: var(--sp-3); color: var(--ink-soft); }
 .plan__cta { margin-top: auto; padding-top: var(--sp-5); display: grid; }
 
 .schedule { margin-top: var(--sp-4); padding: var(--sp-5); background: var(--paper); }
 .schedule__title { display: flex; align-items: center; gap: 10px; font-family: var(--font-mincho); font-weight: 600; font-size: var(--fs-body); letter-spacing: .05em; margin-bottom: var(--sp-3); }
+.schedule__list { display: grid; gap: var(--sp-2); }
+.schedule__list dt { font-weight: 500; }
 
 /* ---------- therapist ---------- */
 .therapist__grid { display: grid; gap: var(--sp-6); }
@@ -304,13 +299,14 @@ ul, ol { padding: 0; list-style: none; }
 .flow__step:last-child::after { display: none; }
 .flow__title { font-family: var(--font-mincho); font-weight: 600; font-size: var(--fs-h3); margin: var(--sp-1) 0 var(--sp-2); }
 .flow__text { color: #f4efe4; }
+.flow__note { margin-top: var(--sp-7); max-width: 40em; color: #f4efe4; }
 
 /* ---------- voice ---------- */
 .voice { background: var(--bg-beige); }
 .voice__list { display: grid; gap: var(--sp-4); }
 .voice__card { padding: var(--sp-6) var(--sp-5) var(--sp-5); background: var(--paper); }
 .voice__card svg { width: 28px; height: 28px; color: var(--brand-line); margin-bottom: var(--sp-3); }
-.voice__card .ph + .ph { margin-top: var(--sp-3); }
+.voice__menu { margin-top: var(--sp-3); font-size: var(--fs-note); }
 
 /* ---------- faq ---------- */
 .faq__list { border-top: 1px solid var(--line); max-width: 820px; margin-inline: auto; }
@@ -356,7 +352,7 @@ ul, ol { padding: 0; list-style: none; }
 .field { border: 0; margin: 0 0 var(--sp-5); padding: 0; min-width: 0; }
 .field__label { display: flex; align-items: center; gap: var(--sp-2); font-weight: 500; font-size: var(--fs-body); margin-bottom: var(--sp-2); padding: 0; }
 .req, .opt { font-size: var(--fs-note); font-weight: 500; letter-spacing: .05em; padding: 0 .5em; border-radius: 2px; line-height: 1.6; }
-.req { background: var(--accent); color: #fff; }
+.req { border: 1px solid var(--brand-deep); color: var(--brand-deep); }
 .opt { background: var(--bg-beige); color: var(--ink-soft); }
 .input {
   width: 100%; min-height: 50px;
@@ -367,6 +363,10 @@ ul, ol { padding: 0; list-style: none; }
 }
 .input:focus { outline: 2px solid var(--brand-deep); outline-offset: 1px; border-color: var(--brand-deep); }
 textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
+.input[aria-invalid="true"] { border: 2px solid var(--ink); }
+.choices[aria-invalid="true"] .choice__body { border-color: var(--ink); }
+.field__error { margin-top: var(--sp-2); font-size: var(--fs-note); font-weight: 500; color: var(--ink); }
+.field__error::before { content: "※ "; }
 .choices { display: grid; gap: 10px; }
 .choice { position: relative; display: block; cursor: pointer; }
 .choice input { position: absolute; opacity: 0; inset: 0; }
@@ -425,7 +425,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   .plan { padding: var(--sp-7) var(--sp-6) var(--sp-6); }
   .plan__cta { display: flex; }
   .schedule { padding: var(--sp-6); display: grid; grid-template-columns: 200px 1fr; gap: var(--sp-5); align-items: center; }
-  .schedule__title { margin-bottom: 0; }
+  .schedule__title { margin-bottom: 0; align-self: start; }
 
   .voice__list { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
 
@@ -475,9 +475,10 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
   .flow__step::after { left: 44px; right: calc(var(--sp-2) - var(--sp-6)); top: 18px; bottom: auto; border-left: 0; border-top: 1px solid color-mix(in srgb, #f4efe4 40%, transparent); }
 
   /* アクセス：見出し（左）＋表（右） */
-  .access .container { display: grid; grid-template-columns: 4fr 8fr; gap: var(--sp-8); align-items: start; }
+  .access .container { display: grid; grid-template-columns: 4fr 8fr; gap: 0 var(--sp-8); align-items: start; }
   .access .sec-head { text-align: left; margin-bottom: 0; }
   .access__table { max-width: none; margin: 0; }
+  .access__note { grid-column: 2; }
 
   .reserve__grid { grid-template-columns: 1fr 340px; gap: var(--sp-5); align-items: start; max-width: 1040px; margin-inline: auto; }
   .line-card { position: sticky; top: calc(var(--header-h) + 24px); padding: var(--sp-6) var(--sp-5); }
@@ -505,7 +506,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
       <a href="#faq">よくある質問</a>
       <a href="#access">アクセス</a>
     </nav>
-    <a class="btn btn--primary header__cta" href="#reserve">ご予約</a>
+    <a class="btn btn--primary" href="#reserve">予約フォームへ</a>
   </div>
 </header>
 
@@ -523,13 +524,13 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         <h1 class="hero__title">香りのなかで、<wbr>ほっとひと息。</h1>
         <p class="hero__lead">女性専用・完全予約制の、小さなアロマサロンです。その日の気分で選ぶ香りのトリートメントと、自宅で続けられるセルフケア講座をご用意しています。</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#reserve">初回のご予約はこちら</a>
+          <a class="btn btn--primary" href="#reserve">予約フォームへ</a>
           <a class="btn btn--line" href="#">LINEで相談する</a>
         </div>
       </div>
     </div>
     <div class="container">
-      <div class="summary">
+      <div class="summary" id="price">
         <h2 class="summary__title">メニューと料金（税込）</h2>
         <dl class="summary__list">
           <div class="summary__item">
@@ -584,8 +585,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         <h2 class="sec-title">soyogiについて</h2>
       </div>
       <div>
-        <p class="about__text">atelier soyogi（アトリエ そよぎ）は、住宅街の一室で営むアロマサロンです。ご案内は1日数名まで、セルフケア講座の定員は4名です。</p>
-        <!-- CLIENT: コンセプト文の確定版（サロン名の由来・空間へのこだわりなどがあれば追記） -->
+        <p class="about__text">atelier soyogi（アトリエ そよぎ）は、住宅街の一室で営むアロマサロンです。サロン名は、草木が風にゆれる「そよぐ」から付けました。施術用のベッドは1台で、ご案内は1日数名まで、セルフケア講座の定員は4名です。</p>
       </div>
     </div>
 
@@ -607,14 +607,14 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         <a class="menu-nav__card" href="#treatment">
           <span>
             <span class="menu-nav__name">アロマトリートメント</span>
-            <span class="menu-nav__meta">個人・完全予約制｜60分 7,700円〜</span>
+            <span class="menu-nav__meta">個人・完全予約制｜内容と料金表を見る</span>
           </span>
           <svg class="menu-nav__arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
         <a class="menu-nav__card" href="#course">
           <span>
             <span class="menu-nav__name">はじめてのアロマセルフケア講座</span>
-            <span class="menu-nav__meta">少人数・最大4名｜体験講座 3,300円〜</span>
+            <span class="menu-nav__meta">少人数・最大4名｜内容と料金表を見る</span>
           </span>
           <svg class="menu-nav__arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
@@ -633,8 +633,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
           <h3 class="menu-item__title">アロマトリートメント</h3>
           <p class="menu-item__text">その日の気分で選んだ精油で行う、おひとりずつのトリートメントです。</p>
           <div class="menu-item__detail">
-            <!-- CLIENT: トリートメントの内容の詳細（範囲・着替えの有無など） -->
-            <p class="ph">（トリートメントの内容の詳細が入ります）</p>
+            <p>60分は背中と脚、90分は背中・腕・脚のトリートメントです。ガウンと使い捨てのショーツをご用意しているので、着替えのお持ちこみは要りません。</p>
           </div>
 
           <dl class="price-table">
@@ -673,8 +672,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
             <h3 class="menu-item__title">はじめての<wbr>アロマセルフケア講座</h3>
             <p class="menu-item__text">自宅でできる香りのセルフケアを、最大4名の少人数で学ぶ全3回の講座です。精油の選び方から、自分用のブレンドオイルづくりまでを順に学びます。</p>
             <div class="menu-item__detail">
-              <!-- CLIENT: 1回あたりの時間・開催場所など -->
-              <p class="ph">（1回あたりの時間などの講座概要が入ります）</p>
+              <p>1回90分で、サロンと同じ部屋で行います。</p>
             </div>
           </div>
         </div>
@@ -705,8 +703,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
             <p class="plan__price">3,300<small>円</small></p>
             <p class="plan__price-note">税込</p>
             <p class="plan__text">全3回の前に、単発の体験講座だけ受けることもできます。</p>
-            <!-- CLIENT: 体験講座の内容 -->
-            <p class="ph">（体験講座の内容が入ります）</p>
+            <p class="plan__detail">5種類の精油を嗅ぎ比べて好きな香りを選び、その香りでハンドトリートメントを体験します。</p>
             <div class="plan__cta">
               <a class="btn btn--primary" href="#reserve" data-menu="体験講座">体験講座を予約する</a>
             </div>
@@ -725,8 +722,16 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
 
         <div class="schedule">
           <p class="schedule__title">開催日程</p>
-          <!-- CLIENT: 講座の開催日程 -->
-          <p class="ph">（講座の開催日程が入ります）</p>
+          <dl class="schedule__list">
+            <div>
+              <dt>アロマセルフケア講座（全3回）</dt>
+              <dd>毎月第2土曜日 10:00〜11:30（3か月で修了）</dd>
+            </div>
+            <div>
+              <dt>体験講座（単発）</dt>
+              <dd>毎月第4土曜日 10:00〜11:30</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </div>
@@ -746,20 +751,19 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         </figure>
         <div>
           <p class="therapist__role">セラピスト</p>
-          <!-- CLIENT: セラピストの名前 -->
-          <p class="therapist__name"><span class="ph ph--inline">（お名前）</span></p>
+          <!-- CLIENT: セラピストの名前・経歴・保有資格・メッセージ -->
+          <p class="therapist__name sample">〇〇 〇〇</p>
           <dl class="therapist__body">
             <div>
               <dt>プロフィール</dt>
-              <!-- CLIENT: 経歴・保有資格 -->
-              <dd class="ph">（経歴・保有資格が入ります）</dd>
+              <dd class="sample">経歴と保有資格を載せる欄です。</dd>
             </div>
             <div>
               <dt>メッセージ</dt>
-              <!-- CLIENT: お客様へのメッセージ -->
-              <dd class="ph">（お客様へのメッセージが入ります）</dd>
+              <dd class="sample">お客様へのメッセージを載せる欄です。</dd>
             </div>
           </dl>
+          <p class="sample-note"><span>掲載例</span>架空のサロンのため、セラピストの名前・経歴・メッセージは載せていません。</p>
         </div>
       </div>
     </div>
@@ -781,8 +785,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         <li class="flow__step">
           <div>
             <h3 class="flow__title">予約確定のご連絡</h3>
-            <!-- CLIENT: 連絡の方法・返信までの目安 -->
-            <p class="flow__text">サロンから、ご予約確定のご連絡をお送りします。</p>
+            <p class="flow__text">予約フォームの送信から2日以内（定休日を除く）に、サロンからご予約確定のメールをお送りします。</p>
           </div>
         </li>
         <li class="flow__step">
@@ -798,7 +801,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
           </div>
         </li>
       </ol>
-      <!-- CLIENT: 当日の所要時間・到着時刻の目安などがあれば追記 -->
+      <p class="flow__note">トリートメントの日は、香り選びと着替えのため、施術時間に30分ほど足した時間をみておいてください。開始の5分前を目安にお越しください。</p>
     </div>
   </section>
 
@@ -812,20 +815,21 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
       <ul class="voice__list">
         <li class="voice__card">
           <svg aria-hidden="true"><use href="#i-quote"/></svg>
-          <p class="ph">（ここに実際のお客様のご感想が入ります）</p>
-          <p class="ph">（ご利用メニュー）</p>
+          <p class="sample">掲載の許可をいただいたお客様のご感想を、ここに載せます。</p>
+          <p class="voice__menu sample">ご利用メニュー：〇〇</p>
         </li>
         <li class="voice__card">
           <svg aria-hidden="true"><use href="#i-quote"/></svg>
-          <p class="ph">（ここに実際のお客様のご感想が入ります）</p>
-          <p class="ph">（ご利用メニュー）</p>
+          <p class="sample">掲載の許可をいただいたお客様のご感想を、ここに載せます。</p>
+          <p class="voice__menu sample">ご利用メニュー：〇〇</p>
         </li>
         <li class="voice__card">
           <svg aria-hidden="true"><use href="#i-quote"/></svg>
-          <p class="ph">（ここに実際のお客様のご感想が入ります）</p>
-          <p class="ph">（ご利用メニュー）</p>
+          <p class="sample">掲載の許可をいただいたお客様のご感想を、ここに載せます。</p>
+          <p class="voice__menu sample">ご利用メニュー：〇〇</p>
         </li>
       </ul>
+      <p class="sample-note"><span>掲載例</span>架空のサロンのため、お客様の声は載せていません。</p>
     </div>
   </section>
 
@@ -842,7 +846,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         </details>
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>料金はどのくらいかかりますか？</summary>
-          <div class="faq__a"><span class="faq__mark">A</span><p>アロマトリートメントは60分7,700円・90分11,000円、体験講座（90分）は3,300円、アロマセルフケア講座（全3回）は16,500円です。表示はすべて税込で、全3回の講座は精油・テキスト代込みの料金です。</p></div>
+          <div class="faq__a"><span class="faq__mark">A</span><p>料金は、ページ上部の<a href="#price">メニューと料金（税込）</a>と、各メニューの料金表に載せています。表示はすべて税込で、全3回の講座は精油・テキスト代込みです。</p></div>
         </details>
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>全3回の講座の前に、お試しで受けられますか？</summary>
@@ -854,13 +858,11 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         </details>
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>当日の服装や持ち物はありますか？</summary>
-          <!-- CLIENT: 服装・持ち物についての回答 -->
-          <div class="faq__a"><span class="faq__mark">A</span><p class="ph">（回答が入ります）</p></div>
+          <div class="faq__a"><span class="faq__mark">A</span><p>普段の服装でお越しください。トリートメントの着替えはサロンで用意しています。講座の日は筆記用具だけお持ちください（テキストはお渡しします）。</p></div>
         </details>
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>キャンセルや日程の変更はできますか？</summary>
-          <!-- CLIENT: キャンセル・日程変更の規定 -->
-          <div class="faq__a"><span class="faq__mark">A</span><p class="ph">（回答が入ります）</p></div>
+          <div class="faq__a"><span class="faq__mark">A</span><p>できます。前日の18時までに、メールかLINEでご連絡ください。キャンセル料はいただいていません。</p></div>
         </details>
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>男性も利用できますか？</summary>
@@ -884,22 +886,20 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         <div class="access__row">
           <dt>所在地</dt>
           <!-- CLIENT: 住所 -->
-          <dd><span class="ph ph--inline">（住所が入ります）</span></dd>
+          <dd class="sample">〇〇県〇〇市〇〇町</dd>
         </div>
         <div class="access__row">
           <dt>最寄り駅</dt>
           <!-- CLIENT: 最寄り駅・駅からの道のり -->
-          <dd><span class="ph ph--inline">（最寄り駅が入ります）</span></dd>
+          <dd class="sample">〇〇線「〇〇駅」から徒歩〇分</dd>
         </div>
         <div class="access__row">
           <dt>営業時間</dt>
-          <!-- CLIENT: 営業時間 -->
-          <dd><span class="ph ph--inline">（営業時間が入ります）</span></dd>
+          <dd>10:00〜18:00（最終受付16:30）</dd>
         </div>
         <div class="access__row">
           <dt>定休日</dt>
-          <!-- CLIENT: 定休日 -->
-          <dd><span class="ph ph--inline">（定休日が入ります）</span></dd>
+          <dd>日曜日・月曜日</dd>
         </div>
         <div class="access__row">
           <dt>ご予約</dt>
@@ -910,6 +910,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
           <dd>女性専用</dd>
         </div>
       </dl>
+      <p class="sample-note access__note"><span>掲載例</span>架空のサロンのため、所在地と最寄り駅は載せていません。</p>
     </div>
   </section>
 
@@ -929,15 +930,17 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
         <form class="form-card" id="reserve-form" action="#" method="post">
           <div class="field">
             <label class="field__label" for="f-name">お名前 <span class="req">必須</span></label>
-            <input class="input" type="text" id="f-name" name="name" autocomplete="name" required>
+            <input class="input" type="text" id="f-name" name="name" autocomplete="name" required aria-describedby="error-name">
+            <p class="field__error" id="error-name" aria-live="polite" hidden></p>
           </div>
           <div class="field">
             <label class="field__label" for="f-email">メールアドレス <span class="req">必須</span></label>
-            <input class="input" type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required>
+            <input class="input" type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required aria-describedby="error-email">
+            <p class="field__error" id="error-email" aria-live="polite" hidden></p>
           </div>
           <fieldset class="field">
             <legend class="field__label">希望メニュー <span class="req">必須</span></legend>
-            <div class="choices">
+            <div class="choices" id="menu-choices">
               <label class="choice">
                 <input type="radio" name="menu" value="アロマトリートメント" required>
                 <span class="choice__body"><span class="choice__name">アロマトリートメント<span class="choice__meta">60分 7,700円／90分 11,000円</span></span></span>
@@ -947,10 +950,12 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
                 <span class="choice__body"><span class="choice__name">体験講座<span class="choice__meta">90分 3,300円</span></span></span>
               </label>
             </div>
+            <p class="field__error" id="error-menu" aria-live="polite" hidden></p>
           </fieldset>
           <div class="field">
             <label class="field__label" for="f-date">第1希望日 <span class="req">必須</span></label>
-            <input class="input" type="date" id="f-date" name="date" required>
+            <input class="input" type="date" id="f-date" name="date" required aria-describedby="error-date">
+            <p class="field__error" id="error-date" aria-live="polite" hidden></p>
           </div>
           <div class="field">
             <label class="field__label" for="f-message">ご質問 <span class="opt">任意</span></label>
@@ -965,6 +970,7 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
           <p class="line-card__text">どちらのメニューにするか迷ったときや、全3回の講座についてのご相談は、LINEからどうぞ。</p>
           <!-- CLIENT: LINE公式アカウントのURL -->
           <a class="btn btn--line" href="#">LINEで相談する</a>
+          <p class="sample-note"><span>掲載例</span>架空のサロンのため、LINEのリンク先はありません。</p>
         </aside>
       </div>
     </div>
@@ -995,6 +1001,45 @@ textarea.input { min-height: 120px; resize: vertical; line-height: 1.7; }
       if (radio) radio.checked = true;
     });
   });
+
+  // 入力チェック：欄を離れたときにエラーを出し、直したらすぐ消す（送信の仕組みは変えない）
+  const messages = {
+    name: { valueMissing: 'お名前を入力してください。' },
+    email: { valueMissing: 'メールアドレスを入力してください。', typeMismatch: 'メールアドレスの形を確かめてください（例：name@example.com）。' },
+    menu: { valueMissing: '希望メニューを選んでください。' },
+    date: { valueMissing: '第1希望日を選んでください。', rangeUnderflow: '今日以降の日付を選んでください。', badInput: '日付を確かめてください。' },
+  };
+  const choices = document.getElementById('menu-choices');
+  const check = (name) => {
+    const field = form.elements[name];
+    const isGroup = field instanceof RadioNodeList;
+    const validity = (isGroup ? field[0] : field).validity;
+    const key = Object.keys(messages[name]).find((k) => validity[k]);
+    const error = document.getElementById(`error-${name}`);
+    error.textContent = key ? messages[name][key] : '';
+    error.hidden = !key;
+    const target = isGroup ? choices : field;
+    if (key) target.setAttribute('aria-invalid', 'true');
+    else target.removeAttribute('aria-invalid');
+  };
+  // 全角で入力されたメールアドレスも受け付ける（半角に直す）
+  const toHalfWidth = (value) => value.replace(/[！-～]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)).replace(/\u3000/g, ' ').trim();
+  ['name', 'email', 'date'].forEach((name) => {
+    const field = form.elements[name];
+    field.addEventListener('blur', () => {
+      if (name === 'email') field.value = toHalfWidth(field.value);
+      check(name);
+    });
+    // エラーが出ている欄は、直したらすぐ消す
+    field.addEventListener('input', () => { if (field.hasAttribute('aria-invalid')) check(name); });
+    field.addEventListener('change', () => { if (field.hasAttribute('aria-invalid')) check(name); });
+  });
+  form.querySelectorAll('input[name="menu"]').forEach((radio) => radio.addEventListener('change', () => check('menu')));
+  choices.closest('fieldset').addEventListener('focusout', (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) check('menu');
+  });
+  // 送信ボタンを押したときに未入力があれば、その欄にもエラーを出す
+  form.addEventListener('invalid', (e) => { if (messages[e.target.name]) check(e.target.name); }, true);
 
   // ダミー送信（本番ではSSGformなどに差し替えるため、この処理ごと削除する）
   form.addEventListener('submit', (e) => {
